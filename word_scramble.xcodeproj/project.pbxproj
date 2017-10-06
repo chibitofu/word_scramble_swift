@@ -13,6 +13,7 @@
 		739C64F61F86F36100DB2EF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 739C64F51F86F36100DB2EF5 /* Assets.xcassets */; };
 		739C64F91F86F36100DB2EF5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 739C64F71F86F36100DB2EF5 /* LaunchScreen.storyboard */; };
 		739C65041F86F36100DB2EF5 /* word_scrambleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739C65031F86F36100DB2EF5 /* word_scrambleTests.swift */; };
+		739C65141F883A2E00DB2EF5 /* start.txt in Resources */ = {isa = PBXBuildFile; fileRef = 739C65131F883A2E00DB2EF5 /* start.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		739C64FF1F86F36100DB2EF5 /* word_scrambleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = word_scrambleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		739C65031F86F36100DB2EF5 /* word_scrambleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = word_scrambleTests.swift; sourceTree = "<group>"; };
 		739C65051F86F36100DB2EF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		739C65131F883A2E00DB2EF5 /* start.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = start.txt; path = "../../../HackingWithSwift/project5-files/Content/start.txt"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 				739C64F21F86F36100DB2EF5 /* Main.storyboard */,
 				739C64F51F86F36100DB2EF5 /* Assets.xcassets */,
 				739C64F71F86F36100DB2EF5 /* LaunchScreen.storyboard */,
+				739C65131F883A2E00DB2EF5 /* start.txt */,
 				739C64FA1F86F36100DB2EF5 /* Info.plist */,
 			);
 			path = word_scramble;
@@ -180,6 +183,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				739C64F91F86F36100DB2EF5 /* LaunchScreen.storyboard in Resources */,
+				739C65141F883A2E00DB2EF5 /* start.txt in Resources */,
 				739C64F61F86F36100DB2EF5 /* Assets.xcassets in Resources */,
 				739C64F41F86F36100DB2EF5 /* Main.storyboard in Resources */,
 			);
