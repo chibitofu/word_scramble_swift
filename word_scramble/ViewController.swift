@@ -21,6 +21,7 @@ class ViewController: UITableViewController {
         tableView.reloadData()
     }
     
+    //Checks then submits the user answer to the usedWords array and adds it to the tableView.
     func submit(answer: String) {
         let lowerAnswer = answer.lowercased()
         
@@ -37,18 +38,39 @@ class ViewController: UITableViewController {
         }
     }
     
+    //Checks to see if the user answer is an anagram of the word.
     func isPossible(word: String) -> Bool {
+        var tempWord = title!.lowercased()
+        
+        for letter in word {
+            if let pos = tempWord.range(of: String(letter)) {
+                
+                tempWord.remove(at: pos.lowerBound)
+            } else {
+                return false
+            }
+        }
+        
         return true
     }
     
+    //Checks to see if the user answer is a copy of a word in the usedWords array.
     func isOriginal(word: String) -> Bool {
-        return true
+        return !usedWords.contains(word)
     }
     
+    
+    //Checks to see if the user answer is a real word in english.
     func isReal(word: String) -> Bool {
-        return true
+        let checker = UITextChecker()
+        let range = NSMakeRange(0, word.utf16.count)
+        let misspelledRange = checker.rangeOfMisspelledWord(in: word, range: range, startingAt: 0, wrap: false, language: "en")
+        
+        return misspelledRange.location == NSNotFound
     }
     
+    //Connected to the right bar button item that was added in viewDidLoad().
+    //Pops up an alert so the user can enter in a word and submit it.
     @objc func promptForAnswers() {
         let ac = UIAlertController(title: "Enter answer", message: nil, preferredStyle: .alert)
         ac.addTextField()
