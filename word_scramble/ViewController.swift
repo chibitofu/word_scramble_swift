@@ -16,7 +16,13 @@ class ViewController: UITableViewController {
 //Shuffles the words in allWords array using Gameplaykit, sets the title to the selected word and empties out the usedWords array.
     func startGame() {
         allWords = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: allWords) as! [String]
-        title = allWords[0]
+        var singleWord = [String]()
+        for letter in allWords[0] {
+            singleWord.append(String(letter))
+        }
+        let shuffleWord = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: singleWord)
+        let shuffleWordString = shuffleWord.flatMap {String(describing: $0)}
+        title = String(shuffleWordString)
         usedWords.removeAll(keepingCapacity: true)
         tableView.reloadData()
     }
