@@ -13,6 +13,13 @@ class ViewController: UITableViewController {
     var allWords = [String]()
     var usedWords = [String]()
     
+//Gives a new word in the title.
+    @IBAction func nextWord(_ sender: Any) {
+        usedWords.removeAll()
+        tableView.reloadData()
+        startGame()
+    }
+    
 //Shuffles the words in allWords array using Gameplaykit, sets the title to the selected word and empties out the usedWords array.
     func startGame() {
         allWords = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: allWords) as! [String]
@@ -59,15 +66,13 @@ class ViewController: UITableViewController {
 //Checks to see if the user answer is an anagram of the word and longer than 3 letters.
     func isPossible(word: String) -> Bool {
         var tempWord = title!.lowercased()
-        
-        if tempWord.count > 3{
-            for letter in word {
-                if let pos = tempWord.range(of: String(letter)) {
-                    
-                    tempWord.remove(at: pos.lowerBound)
-                } else {
-                    return false
-                }
+
+        for letter in word {
+            if let pos = tempWord.range(of: String(letter)) {
+                
+                tempWord.remove(at: pos.lowerBound)
+            } else {
+                return false
             }
         }
         
@@ -105,6 +110,7 @@ class ViewController: UITableViewController {
         present(ac, animated: true)
     }
     
+//Shuffles the word in the title using the left bar button.
     @objc func shuffleWord() {
         let titleWord = Array(title!)
         let shuffleWordArr = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: titleWord)
@@ -126,7 +132,6 @@ class ViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         //Creates an array of the words in start.txt
         if let startWordsPath = Bundle.main.path(forResource: "start", ofType: "txt") {
