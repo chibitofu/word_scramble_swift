@@ -105,6 +105,13 @@ class ViewController: UITableViewController {
         present(ac, animated: true)
     }
     
+    @objc func shuffleWord() {
+        let titleWord = Array(title!)
+        let shuffleWordArr = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: titleWord)
+        let wordArr = shuffleWordArr.flatMap { String(describing: $0) }
+        title = String(wordArr)
+    }
+    
 //Sets the number of rows in the tableView to the amount of guessed words.
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return usedWords.count
@@ -132,6 +139,8 @@ class ViewController: UITableViewController {
         
         //Adds a button to the navbar in the upper right.
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(promptForAnswers))
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(shuffleWord))
         
         startGame()
     }
